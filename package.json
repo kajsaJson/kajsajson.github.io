@@ -33,11 +33,10 @@
     "fmt": "prettier --cache --cache-strategy metadata --ignore-unknown --no-error-on-unmatched-pattern --write \"./{backend,src}/**\"",
     "lint": "eslint --cache --exit-on-fatal-error --fix --no-error-on-unmatched-pattern --report-unused-disable-directives \"./{backend,src}/**/*.{ts,tsx}\"",
     "preview": "vite preview",
-    "reinstall": "pnpm wipe && pnpm store prune && pnpm i -g pnpm && pnpm update -g -L && pnpm i && pnpm update -L",
     "start": "vite --host",
     "start:backend": "node --import=file:///C:/ts-loader-hook/src/registerTsLoaderHook.mjs --watch ./backend/server.ts",
-    "tidy": "pnpm lint && pnpm fmt",
-    "wipe": "node -e \"import(`node:fs/promises`).then(({ rm }) => Promise.all([`node_modules`, `pnpm-lock.yaml`].map((path) => rm(path, { force: true, recursive: true }))));\""
+    "tidy": "npm run lint && npm run fmt",
+    "wipe": "node -e \"import(`node:fs/promises`).then(({ rm }) => Promise.all([`node_modules`, `package-lock.json`].map((path) => rm(path, { force: true, recursive: true }))));\""
   },
   "type": "module",
   "version": "0.0.0"
